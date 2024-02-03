@@ -1,5 +1,4 @@
-﻿using System;
-using Tracker.UI.Controls;
+﻿using Tracker.UI.Controls;
 
 namespace Tracker.UI;
 

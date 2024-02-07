@@ -1,6 +1,9 @@
 ﻿namespace Tracker.Model;
 
-public class RunningSessionRepository
+public interface IRunningSessionRepository : IRepository<RunningSession>
 {
+}
 
+internal sealed class RunningSessionRepository : Repository<RunningSession>
+{
 }

@@ -1,6 +1,9 @@
 ﻿namespace Tracker.Model;
 
-internal sealed class TimeInstanceRepository
+public interface ITimeInstanceRepository : IRepository<TimeInstance>
 {
-    
+}
+
+internal sealed class TimeInstanceRepository : Repository<TimeInstance>, ITimeInstanceRepository
+{
 }

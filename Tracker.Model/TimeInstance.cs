@@ -1,3 +1,3 @@
 ﻿namespace Tracker.Model;
 
-public record TimeInstance(DateTime StartTime, DateTime Duration);
+public record TimeInstance(DateTime StartTime, DateTime Duration) : BaseRecord;

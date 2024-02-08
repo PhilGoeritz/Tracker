@@ -3,29 +3,34 @@ using DynamicData;
 
 namespace Tracker.Model;
 
-public interface IRepository<T> where T : BaseRecord
+public interface IRepository<Type, Key>
+    where Type : notnull
+    where Key : notnull
 {
-    void AddOrUpdate(T session);
-    void Remove(Guid id);
+    void AddOrUpdate(Type item);
+    void Remove(Type item);
+    void Remove(Key id);
 
-    Optional<T> Get(Guid id);
-    IEnumerable<T> GetAll();
+    Optional<Type> Get(Key id);
+    IEnumerable<Type> GetAll();
 
-    IObservable<T> Watch(Guid id);
-    IObservable<IChangeSet<T, Guid>> WatchAll();
+    IObservable<Type> Watch(Key id);
+    IObservable<IChangeSet<Type, Key>> WatchAll();
 }
 
-internal abstract class Repository<T> : IRepository<T> where T : BaseRecord
+internal abstract class Repository<Type, Key> : IRepository<Type, Key>
+    where Type : notnull
+    where Key : notnull
 {
-    protected readonly SourceCache<T, Guid> _sessionCache
-        = new SourceCache<T, Guid>(session => session.Id);
+    protected abstract SourceCache<Type, Key> ItemCache { get; }
 
-    public void AddOrUpdate(T session) => _sessionCache.AddOrUpdate(session);
-    public void Remove(Guid id) => _sessionCache.RemoveKey(id);
+    public void AddOrUpdate(Type item) => ItemCache.AddOrUpdate(item);
+    public void Remove(Type item) => ItemCache.Remove(item);
+    public void Remove(Key id) => ItemCache.RemoveKey(id);
 
-    public Optional<T> Get(Guid id) => _sessionCache.Lookup(id).Value;
-    public IEnumerable<T> GetAll() => _sessionCache.Items;
+    public Optional<Type> Get(Key id) => ItemCache.Lookup(id).Value;
+    public IEnumerable<Type> GetAll() => ItemCache.Items;
 
-    public IObservable<T> Watch(Guid id) => _sessionCache.WatchValue(id);
-    public IObservable<IChangeSet<T, Guid>> WatchAll() => _sessionCache.Connect();
+    public IObservable<Type> Watch(Key id) => ItemCache.WatchValue(id);
+    public IObservable<IChangeSet<Type, Key>> WatchAll() => ItemCache.Connect();
 }

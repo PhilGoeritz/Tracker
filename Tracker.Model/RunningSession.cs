@@ -1,3 +1,3 @@
 ﻿namespace Tracker.Model;
 
-public record RunningSession(DateTime StartTime) : BaseRecord;
+public record RunningSession(DateTime StartTime, string Activity);

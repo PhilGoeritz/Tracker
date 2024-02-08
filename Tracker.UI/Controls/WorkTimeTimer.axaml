@@ -2,7 +2,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="450"
              x:Class="Tracker.UI.Controls.WorkTimeTimer">
-  Welcome to WorkTime-Timer!
+  
+  <StackPanel Orientation="Vertical"
+              VerticalAlignment="Center">
+
+    <!-- Timer -->
+    <TextBlock FontSize="24"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,20"
+               Text="00:00:00" />
+
+    <!-- Play Pause Stop -->
+    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center">
+      <Button Content="Play" />
+      <Button Content="Pause" />
+      <Button Content="Stop" />
+    </StackPanel>
+
+  </StackPanel>
+
 </UserControl>

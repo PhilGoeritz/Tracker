@@ -1,3 +1,6 @@
 ﻿namespace Tracker.Model;
 
-public record TimeInstance(DateTime StartTime, DateTime Duration) : BaseRecord;
+public record TimeInstance(DateTime StartTime, TimeSpan Duration, string Activity)
+{
+    public Guid Id { get; init; } = Guid.NewGuid();
+}

@@ -8,9 +8,7 @@
   <ItemGroup>
     <PackageReference Include="DynamicData" Version="8.3.27" />
     <PackageReference Include="DotNext" Version="5.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Tracker.UI\Tracker.UI.csproj" />
+    <PackageReference Include="Autofac" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

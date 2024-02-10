@@ -1,11 +1,14 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Tracker.UI.Controls;
 
-namespace Tracker.UI;
+namespace Tracker.App;
 
 public partial class App : Application
 {
+    private readonly IDependencyResolver _dependencyResolver = new DependencyResolver();
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -15,7 +18,12 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow{ DataContext = new MainWindowViewModel() };
+            desktop.MainWindow = new MainWindow
+            {
+                DataContext = new MainWindowViewModel(_dependencyResolver.Resolve<IWorkTimeTimerViewModel>())
+            };
+
+            desktop.Exit += (sender, e) => _dependencyResolver.Dispose();
         }
 
         base.OnFrameworkInitializationCompleted();

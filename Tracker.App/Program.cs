@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace Tracker.UI;
+namespace Tracker.App;
 
 class Program
 {

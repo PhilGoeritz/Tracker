@@ -4,7 +4,7 @@ namespace Tracker.Logic;
 
 public static class ClassRegistration
 {
-    public static ContainerBuilder RegisterLogic(ContainerBuilder builder)
+    public static ContainerBuilder Register(ContainerBuilder builder)
     {
         builder.RegisterType<SessionService>().As<ISessionService>().SingleInstance();
         

@@ -1,17 +1,14 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
+using Tracker.UI.Controls;
 
 namespace Tracker.UI;
 
-public class ClassRegistration
+public static class ClassRegistration
 {
-    // TODO: Create new StartUp Project Tracker.App and put App.axaml and MainWindow there
-    // public static ContainerBuilder RegisterModel()
-    // {
-    //     var builder = new ContainerBuilder();
+    public static ContainerBuilder Register(ContainerBuilder builder)
+    {
+        builder.RegisterType<WorkTimeTimerViewModel>().As<IWorkTimeTimerViewModel>().SingleInstance();
 
-    //     Tracker.Model.ClassRegistration.Register(builder);
-
-    //     return builder;
-    // }
+        return builder;
+    }
 }

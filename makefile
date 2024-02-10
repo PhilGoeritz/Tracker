@@ -7,4 +7,4 @@ rebuild:
 	dotnet build WorkTimeTracker.sln --debug
 
 run:
-	dotnet run --project Tracker.UI/Tracker.UI.csproj
+	dotnet run --project Tracker.App/Tracker.App.csproj

@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace Tracker.UI;
+namespace Tracker.App;
 
 public partial class MainWindow : Window
 {

@@ -8,7 +8,7 @@ public interface ISessionService
     TimeInstance FinishSession(RunningSession session);
 }
 
-internal sealed class SessionService
+internal sealed class SessionService : ISessionService
 {
     private readonly IRunningSessionRepository _runningSessionRepository;
     private readonly ITimeInstanceRepository _timeInstanceRepository;

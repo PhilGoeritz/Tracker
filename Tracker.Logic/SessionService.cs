@@ -1,10 +1,12 @@
-﻿using Tracker.Model;
+﻿using DotNext;
+using Tracker.Model;
 
 namespace Tracker.Logic;
 
 public interface ISessionService
 {
     RunningSession StartSession();
+    Optional<RunningSession> GetRunningSession();
     TimeInstance FinishSession(RunningSession session);
 }
 
@@ -23,17 +25,19 @@ internal sealed class SessionService : ISessionService
 
     public RunningSession StartSession()
     {
-        var session = new RunningSession(DateTime.Now, DefaultActivities.Work.ToString());
+        var session = new RunningSession(DateTime.UtcNow, DefaultActivities.Work.ToString());
         _runningSessionRepository.AddOrUpdate(session);
 
         return session;
     }
 
+    public Optional<RunningSession> GetRunningSession() => _runningSessionRepository.GetAll().FirstOrDefault();
+
     public TimeInstance FinishSession(RunningSession session)
     {
         var timeInstance = new TimeInstance(
             session.StartTime,
-            DateTime.Now - session.StartTime,
+            DateTime.UtcNow - session.StartTime,
             session.Activity);
             
         _runningSessionRepository.Remove(session.Activity);

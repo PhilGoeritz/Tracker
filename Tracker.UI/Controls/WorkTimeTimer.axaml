@@ -2,7 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Tracker.UI.Controls;assembly=Tracker.UI"
              mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="450"
+             x:DataType="local:WorkTimeTimer"
              x:Class="Tracker.UI.Controls.WorkTimeTimer">
   
   <StackPanel Orientation="Vertical"
@@ -12,14 +14,13 @@
     <TextBlock FontSize="24"
                HorizontalAlignment="Center"
                Margin="0,0,0,20"
-               Text="00:00:00" />
+               Text="{Binding Timer}" />
 
     <!-- Play Pause Stop -->
     <StackPanel Orientation="Horizontal"
                 HorizontalAlignment="Center">
-      <Button Content="Play" />
-      <Button Content="Pause" />
-      <Button Content="Stop" />
+      <Button Content="Play" Command="{Binding StartCommand}"/>
+      <Button Content="Stop" Command="{Binding StopCommand}"/>
     </StackPanel>
 
   </StackPanel>

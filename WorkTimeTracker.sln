@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracker.Logic", "Tracker.Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracker.App", "Tracker.App\Tracker.App.csproj", "{7FF22816-0507-4C66-B0D4-D718199D6D4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracker.Logic.Tests", "Tracker.Logic.Tests\Tracker.Logic.Tests.csproj", "{5A6C0267-0F0F-41E0-8DEE-41653AE00194}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +77,17 @@ Global
 		{7FF22816-0507-4C66-B0D4-D718199D6D4F}.Release|x64.Build.0 = Release|Any CPU
 		{7FF22816-0507-4C66-B0D4-D718199D6D4F}.Release|x86.ActiveCfg = Release|Any CPU
 		{7FF22816-0507-4C66-B0D4-D718199D6D4F}.Release|x86.Build.0 = Release|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Debug|x64.Build.0 = Debug|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Release|x64.ActiveCfg = Release|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Release|x64.Build.0 = Release|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Release|x86.ActiveCfg = Release|Any CPU
+		{5A6C0267-0F0F-41E0-8DEE-41653AE00194}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

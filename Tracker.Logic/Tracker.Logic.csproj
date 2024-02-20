@@ -13,4 +13,8 @@
     <PackageReference Include="Autofac" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="Tracker.Logic.Tests"/>
+  </ItemGroup>
+
 </Project>

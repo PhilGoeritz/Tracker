@@ -1,7 +1,7 @@
 ﻿using DotNext;
 using DynamicData;
 
-namespace Tracker.Model;
+namespace Tracker.Model.Repositories;
 
 public interface IRepository<Type, Key>
     where Type : notnull

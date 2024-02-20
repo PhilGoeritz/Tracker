@@ -7,22 +7,22 @@
              x:DataType="local:WorkTimeTimer"
              x:Class="Tracker.UI.Controls.WorkTimeTimer">
   
-  <StackPanel Orientation="Vertical"
+    <StackPanel Orientation="Vertical"
               VerticalAlignment="Center">
 
-    <!-- Timer -->
-    <TextBlock FontSize="24"
-               HorizontalAlignment="Center"
-               Margin="0,0,0,20"
-               Text="{Binding Timer}" />
+        <!-- Timer -->
+        <TextBlock FontSize="24"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"
+                   Text="{Binding Timer}" />
 
-    <!-- Play Pause Stop -->
-    <StackPanel Orientation="Horizontal"
-                HorizontalAlignment="Center">
-      <Button Content="Play" Command="{Binding StartCommand}"/>
-      <Button Content="Stop" Command="{Binding StopCommand}"/>
+        <!-- Play Pause Stop -->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="Play" Command="{Binding StartCommand}"/>
+            <Button Content="Stop" Command="{Binding StopCommand}"/>
+        </StackPanel>
+
     </StackPanel>
-
-  </StackPanel>
 
 </UserControl>

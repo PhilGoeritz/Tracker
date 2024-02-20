@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Tracker.Model.Repositories;
 
 namespace Tracker.Model;
 

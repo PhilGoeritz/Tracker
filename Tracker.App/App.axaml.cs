@@ -20,7 +20,7 @@ public partial class App : Application
         {
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(_dependencyResolver.Resolve<IWorkTimeTimerViewModel>())
+                DataContext = _dependencyResolver.Resolve<IMainWindowViewModel>()
             };
 
             desktop.Exit += (sender, e) => _dependencyResolver.Dispose();

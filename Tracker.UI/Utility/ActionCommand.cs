@@ -1,7 +1,7 @@
 ﻿using System.Reactive.Disposables;
 using System.Windows.Input;
 
-namespace Tracker.UI;
+namespace Tracker.UI.Utility;
 
 public sealed class ActionCommand : ICommand, IDisposable
 {

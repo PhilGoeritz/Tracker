@@ -9,6 +9,7 @@ public static class ViewResolver
     /// </summary>
     public static readonly IReadOnlyDictionary<Type, Type> ViewMap = new Dictionary<Type, Type>
     {
-        { typeof(WorkTimeTimerViewModel), typeof(WorkTimeTimer) }
+        { typeof(WorkTimeTimerViewModel), typeof(WorkTimeTimer) },
+        { typeof(ActivityOverviewViewModel), typeof(ActivityOverview) },
     };
 }

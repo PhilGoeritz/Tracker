@@ -4,14 +4,16 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Tracker.Logic;
 using Tracker.Model;
+using Tracker.Model.Objects;
+using Tracker.UI.Utility;
 
 namespace Tracker.UI.Controls;
 
-public interface IWorkTimeTimerViewModel : IDisposable {}
+public interface IWorkTimeTimerViewModel : IDisposable;
 
 public sealed class WorkTimeTimerViewModel : ViewModelBase, IWorkTimeTimerViewModel
 {
-    private readonly SerialDisposable _timerSubscribtion = new();
+    private readonly SerialDisposable _timerSubscription = new();
     private readonly CompositeDisposable _disposables = new();
 
     private readonly ISessionService _sessionService;
@@ -20,15 +22,15 @@ public sealed class WorkTimeTimerViewModel : ViewModelBase, IWorkTimeTimerViewMo
     public ActionCommand StartCommand { get; }
     public ActionCommand StopCommand { get; }
 
-    [Reactive] public RunningSession? RunningSession { get; set; }
+    [Reactive] public RunningSession? RunningSession { get; private set; }
 
     public WorkTimeTimerViewModel(ISessionService sessionService)
     {
         _sessionService = sessionService;
 
-        var sessionObservable = this.WhenAnyValue(x => x.RunningSession);
-        StartCommand = new ActionCommand(StartSession, sessionObservable.Select(x => x is null));
-        StopCommand = new ActionCommand(StopSession, sessionObservable.Select(x => x is not null));
+        var sessionObservable = this.WhenAnyValue(viewModel => viewModel.RunningSession);
+        StartCommand = new ActionCommand(StartSession, sessionObservable.Select(session => session is null));
+        StopCommand = new ActionCommand(StopSession, sessionObservable.Select(session => session is not null));
 
         StartCommand.DisposeWith(_disposables);
         StopCommand.DisposeWith(_disposables);
@@ -37,7 +39,7 @@ public sealed class WorkTimeTimerViewModel : ViewModelBase, IWorkTimeTimerViewMo
         if (runningSession.HasValue)
             SetupRunningSession(runningSession.Value);
 
-        _timerSubscribtion.DisposeWith(_disposables);
+        _timerSubscription.DisposeWith(_disposables);
     }
 
     public void Dispose() => _disposables.Dispose();
@@ -45,7 +47,7 @@ public sealed class WorkTimeTimerViewModel : ViewModelBase, IWorkTimeTimerViewMo
     private void SetupRunningSession(RunningSession value)
     {
         RunningSession = value;
-        _timerSubscribtion.Disposable = Observable
+        _timerSubscription.Disposable = Observable
             .Interval(TimeSpan.FromSeconds(1))
             .Subscribe(_ => Timer = (DateTime.UtcNow - value.StartTime).ToString(@"hh\:mm\:ss"));
     }
@@ -63,6 +65,6 @@ public sealed class WorkTimeTimerViewModel : ViewModelBase, IWorkTimeTimerViewMo
 
         _sessionService.FinishSession(RunningSession);
         RunningSession = null;
-        _timerSubscribtion.Disposable = Disposable.Empty;
+        _timerSubscription.Disposable = Disposable.Empty;
     }
 }

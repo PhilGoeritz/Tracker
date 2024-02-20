@@ -1,4 +1,4 @@
-﻿namespace Tracker.Model;
+﻿namespace Tracker.Model.Objects;
 
 public record TimeInstance(DateTime StartTime, TimeSpan Duration, string Activity)
 {

@@ -1,14 +1,12 @@
-﻿using DynamicData;
+﻿using DotNext;
+using DynamicData;
 using Tracker.Model.Objects;
 
 namespace Tracker.Model.Repositories;
 
-/// <summary>
-/// Probably not needed right now, but it's here for future use.
-/// </summary>
-public interface IRunningSessionRepository : IRepository<RunningSession, string>;
+public interface IRunningSessionRepository : IRepository<RunningSession, Guid>;
 
-internal sealed class RunningSessionRepository : Repository<RunningSession, string>, IRunningSessionRepository
+internal sealed class RunningSessionRepository : Repository<RunningSession, Guid>, IRunningSessionRepository
 {
-    protected override SourceCache<RunningSession, string> ItemCache { get; } = new(x => x.Activity);
+    protected override SourceCache<RunningSession, Guid> ItemCache { get; } = new(x => x.ActivityId);
 }

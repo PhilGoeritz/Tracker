@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Tracker.UI.Controls;
 
 namespace Tracker.App;
 
@@ -23,7 +22,7 @@ public partial class App : Application
                 DataContext = _dependencyResolver.Resolve<IMainWindowViewModel>()
             };
 
-            desktop.Exit += (sender, e) => _dependencyResolver.Dispose();
+            desktop.Exit += (_, _) => _dependencyResolver.Dispose();
         }
 
         base.OnFrameworkInitializationCompleted();

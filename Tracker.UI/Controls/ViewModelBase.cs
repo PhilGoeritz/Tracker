@@ -3,6 +3,6 @@ using ReactiveUI;
 
 namespace Tracker.UI.Controls;
 
-public interface IViewModelBase : INotifyPropertyChanged, INotifyPropertyChanging {}
+public interface IViewModelBase : INotifyPropertyChanged, INotifyPropertyChanging;
 
-public abstract class ViewModelBase : ReactiveObject, IViewModelBase {}
+public abstract class ViewModelBase : ReactiveObject, IViewModelBase;

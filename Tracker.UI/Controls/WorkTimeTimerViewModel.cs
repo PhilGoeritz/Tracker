@@ -3,7 +3,6 @@ using ReactiveUI.Fody.Helpers;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Tracker.Logic;
-using Tracker.Model;
 using Tracker.Model.Objects;
 using Tracker.UI.Utility;
 
@@ -49,13 +48,13 @@ public sealed class WorkTimeTimerViewModel : ViewModelBase, IWorkTimeTimerViewMo
         RunningSession = value;
         _timerSubscription.Disposable = Observable
             .Interval(TimeSpan.FromSeconds(1))
-            .Subscribe(_ => Timer = (DateTime.UtcNow - value.StartTime).ToString(@"hh\:mm\:ss"));
+            .Subscribe(_ => Timer = (DateTime.Now - value.StartTime).ToString(@"hh\:mm\:ss"));
     }
 
     private void StartSession()
     {
-        var session = _sessionService.StartSession();
-        SetupRunningSession(session);
+        // var session = _sessionService.StartSession();
+        // SetupRunningSession(session);
     }
 
     private void StopSession()

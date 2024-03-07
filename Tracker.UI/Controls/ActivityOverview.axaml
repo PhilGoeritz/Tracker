@@ -11,7 +11,7 @@
                 HorizontalAlignment="Center">
         
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Heute"/>
+            <TextBlock Text="Today: "/>
             <TextBlock Text="{Binding TotalTimeSpent}"/>
         </StackPanel>
         

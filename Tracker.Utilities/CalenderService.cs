@@ -1,4 +1,4 @@
-namespace Tracker.Logic;
+namespace Tracker.Utilities;
 
 public interface ICalenderService
 {
@@ -10,16 +10,11 @@ internal sealed class CalenderService : ICalenderService
 {
     public (DateTime WeekStart, DateTime WeekEnd) GetWeekBoundaries(DateTime currentTime)
     {
-        // Calculate the first day of the week (assuming Monday is the first day)
         var daysToSubtract = (int)currentTime.DayOfWeek - (int)DayOfWeek.Monday;
         if (daysToSubtract < 0)
-        {
-            // Adjust for cultures where the week starts on Sunday
             daysToSubtract += 7;
-        }
-        var startOfWeek = currentTime.AddDays(-daysToSubtract).Date;
         
-        // Calculate the last day of the week
+        var startOfWeek = currentTime.AddDays(-daysToSubtract).Date;
         var endOfWeek = startOfWeek.AddDays(6).AddHours(23).AddMinutes(59).AddSeconds(59);
 
         return (startOfWeek, endOfWeek);

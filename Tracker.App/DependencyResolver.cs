@@ -15,6 +15,7 @@ public sealed class DependencyResolver : IDependencyResolver
     public DependencyResolver()
     {
         var builder = new ContainerBuilder();
+        builder = Utilities.ClassRegistration.Register(builder);
         builder = Model.ClassRegistration.Register(builder);
         builder = Logic.ClassRegistration.Register(builder);
         builder = UI.ClassRegistration.Register(builder);

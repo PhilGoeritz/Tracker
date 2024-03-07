@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="Tracker.Utilities.Test"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Autofac">
+        <HintPath>..\..\..\..\..\.nuget\packages\autofac\8.0.0\lib\net8.0\Autofac.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

@@ -1,7 +1,7 @@
 using System.Collections;
 
 // ReSharper disable once CheckNamespace
-namespace Tracker.Logic.Tests.CalenderServiceTests;
+namespace Tracker.Utilities.Tests.CalenderServiceTests;
 
 [TestFixture]
 public sealed class WeekBoundariesTests

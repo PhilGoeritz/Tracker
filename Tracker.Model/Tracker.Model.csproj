@@ -10,5 +10,11 @@
     <PackageReference Include="DotNext" Version="5.0.1" />
     <PackageReference Include="Autofac" Version="8.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tracker.Utilities\Tracker.Utilities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Tracker.Model.Tests" />
+  </ItemGroup>
 
 </Project>

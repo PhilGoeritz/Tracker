@@ -9,6 +9,7 @@ public static class ClassRegistration
     {
         builder.RegisterType<RunningSessionRepository>().As<IRunningSessionRepository>().SingleInstance();
         builder.RegisterType<TimeInstanceRepository>().As<ITimeInstanceRepository>().SingleInstance();
+        builder.RegisterType<ActivityRepository>().As<IActivityRepository>().SingleInstance();
 
         return builder;
     }
